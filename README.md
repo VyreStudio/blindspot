@@ -15,7 +15,7 @@ Your AI can't watch a video. Blindspot turns it into something they CAN experien
 - **Timestamped captions** — what was said and when
 - **Frame grabs** — what it looked like at each moment
 - **Human annotations** — moments YOU flagged that the automated pipeline would miss
-- **Scene analysis** — what was happening (via Twelvelabs, optional)
+- **Scene analysis** — coming soon (own implementation, no third-party dependency)
 
 The output is a scrollable HTML timeline for you and a structured JSON file your AI queries through MCP.
 
@@ -195,7 +195,8 @@ Open the generated `experience.html` in your browser to preview.
 - [x] Custom frame grabs with staging + confirm workflow
 - [x] MCP server with 4 AI query tools
 - [x] Auto-start web UI with MCP
-- [ ] Twelvelabs scene analysis integration
+- [x] External subtitle support (.srt/.vtt upload)
+- [x] Local video file upload (up to 5GB)
 - [ ] TikTok support
 - [ ] Whisper fallback for videos without captions
 - [ ] Speaker diarization
@@ -210,7 +211,6 @@ Open the generated `experience.html` in your browser to preview.
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) (`pip install yt-dlp`)
 - [Flask](https://flask.palletsprojects.com/) (`pip install flask`)
 - [MCP SDK](https://pypi.org/project/mcp/) (`pip install mcp`)
-- Twelvelabs API key (optional, for scene analysis)
 
 ---
 
