@@ -284,26 +284,35 @@
   .player-panel { transition: width 400ms ease; }
 
   .cinema-toggle {
-    background: transparent;
-    color: #888;
-    border: 1px solid #2a2a35;
+    background: #ffb86c;
+    color: #0f0f12;
+    border: none;
     border-radius: 4px;
-    padding: 6px 12px;
-    font-size: 0.75rem;
+    padding: 7px 14px;
+    font-weight: 600;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all 200ms ease;
     margin-left: auto;
     white-space: nowrap;
+    box-shadow: 0 0 10px rgba(255, 184, 108, 0.45);
   }
 
   .cinema-toggle:hover {
-    color: #c89cff;
-    border-color: #c89cff55;
+    background: #ffc98a;
+    box-shadow: 0 0 14px rgba(255, 184, 108, 0.65);
   }
 
+  /* When cinema mode is active, invert the button to dark-with-gold-outline
+     so it reads as "pressed/active" without competing with the video */
   body.cinema-mode .cinema-toggle {
-    color: #c89cff;
-    border-color: #c89cff;
+    background: #16161d;
+    color: #ffb86c;
+    box-shadow: 0 0 0 2px #ffb86c, 0 0 12px rgba(255, 184, 108, 0.3);
+  }
+
+  body.cinema-mode .cinema-toggle:hover {
+    background: #22222e;
   }
 
   /* ── Custom Grabs List ── */
@@ -491,7 +500,7 @@
       <span class="timestamp" id="currentTime">0:00</span>
       <input class="note-input" id="grabNote" placeholder="Add a note (optional)..." />
       <button class="grab-btn" onclick="grabFrame()">Grab Frame</button>
-      <button class="cinema-toggle" id="cinemaToggle" title="Focus mode (press F to toggle)">🎬 Focus</button>
+      <button class="cinema-toggle" id="cinemaToggle" title="Focus mode (press F to toggle)">💡 Focus</button>
     </div>
     <div class="grabs-section">
       <div class="grabs-list" id="grabsList"></div>
@@ -1102,10 +1111,10 @@
   function setCinemaMode(enabled) {
     if (enabled) {
       document.body.classList.add('cinema-mode');
-      if (cinemaToggle) cinemaToggle.textContent = '🎬 Exit Focus';
+      if (cinemaToggle) cinemaToggle.textContent = '💡 Exit Focus';
     } else {
       document.body.classList.remove('cinema-mode');
-      if (cinemaToggle) cinemaToggle.textContent = '🎬 Focus';
+      if (cinemaToggle) cinemaToggle.textContent = '💡 Focus';
     }
     try { localStorage.setItem('blindspot-cinema-mode', enabled ? '1' : '0'); } catch (e) {}
   }
